@@ -1,9 +1,11 @@
 import NavBar from "./components/NavBar/NavBar";
+import Tienda from "./Pages/Tienda";
 
 function App() {
   return (
     <>
       <NavBar />
+      <Tienda />
     </>
   );
 }
