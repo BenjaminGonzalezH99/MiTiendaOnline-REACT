@@ -2,40 +2,46 @@ import { useState } from "react";
 import "./NavBar.css";
 import logo from "../assets/logo.png";
 import cart_icon from "../assets/cart_icon.png";
+import { Link } from "react-router-dom";
 
 function NavBar() {
-  /* const [nombreDeVariable, function modificadorDeVariable] = useState(valorInicialdelaVariable) String 
-    La convención es que la función modificadora de variable se le anteponga un set más el nombre de variable, todo junto en camelCase */
+  /* const [varieable, funcionModificadora] = useState(valorInicialVariable) String*/
+  //La convencion es que a la funcion modificadora de variable se le anteponga un set mas el nombre de variebale, en camelCase
   const [menu, setMenu] = useState("tienda");
   return (
     <div className="navbar">
       <div className="nav-logo">
         <img src={logo} alt="logo" />
-        <p>mi tienda en línea</p>
+        <p>Mi tienda en linea</p>
       </div>
       <ul className="nav-menu">
         <li onClick={() => setMenu("tienda")}>
-          Tienda
-          {/* sintaxis de operador ternario: evaluador ? siCumpleLaCondición : siNoLaCumple */}
-          {/* sintaxis de operador AND: evaluador && siCumpleLaCondición */}
-          {menu === "tienda" ? <hr /> : <></>}
+          <Link to="/" style={{ textDecoration: "none" }}>
+            Tienda
+            {/* sintaxis de operador ternario : evaluador ? Sicumple : noCumple*/}
+            {/* sintaxis operador AND: evaluador && siCumple */}
+            {menu === "tienda" && <hr />}
+          </Link>
         </li>
         <li onClick={() => setMenu("hombre")}>
-          Hombre
-          {menu === "hombre" && <hr />}
+          <Link to="/hombre" style={{ textDecoration: "none" }}>
+            Hombre{menu === "hombre" && <hr />}
+          </Link>
         </li>
         <li onClick={() => setMenu("mujer")}>
-          Mujer
-          {menu === "mujer" && <hr />}
+          <Link to="/mujer" style={{ textDecoration: "none" }}>
+            Mujer{menu === "mujer" && <hr />}
+          </Link>
         </li>
-        <li onClick={() => setMenu("niño")}>
-          Niño
-          {menu === "niño" && <hr />}
+        <li onClick={() => setMenu("nino")}>
+          <Link to="/nino" style={{ textDecoration: "none" }}>
+            Niño{menu === "nino" && <hr />}
+          </Link>
         </li>
       </ul>
       <div className="nav-login-cart">
         <button>Login</button>
-        <img src={cart_icon} alt="cart-icon" />
+        <img src={cart_icon} alt="cart_icon" />
       </div>
     </div>
   );
